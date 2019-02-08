@@ -47,7 +47,7 @@ install:
     - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get update; fi
     - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES; fi
     - if [ "$CHECK_DOC" = 1 -a "$TRAVIS_EVENT_TYPE" = "pull_request" ]; then travis_retry pip3 install flake8 --user; fi
-    - if [ "$RKCOIN_SCRYPT" = 1 ]; then travis_retry sudo pip3 install rkcoin_scrypt --allow-external rkcoin_scrypt; fi
+    - if [ "$RKCOIN_SCRYPT" = 1 ]; then travis_retry sudo pip3 install litecoin_scrypt --allow-external litecoin_scrypt; fi
 before_script:
     - if [ "$CHECK_DOC" = 1 -a "$TRAVIS_EVENT_TYPE" = "pull_request" ]; then contrib/devtools/commit-script-check.sh $TRAVIS_COMMIT_RANGE; fi
     - if [ "$CHECK_DOC" = 1 ]; then contrib/devtools/git-subtree-check.sh src/crypto/ctaes; fi
@@ -74,7 +74,7 @@ script:
     - if [ -z "$NO_DEPENDS" ]; then depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE; fi
     - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
     - mkdir build && cd build
-    - ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG ||  cat config.log 
     - make distdir VERSION=$HOST
     - cd rkcoin-$HOST
     - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
