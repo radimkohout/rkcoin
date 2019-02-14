@@ -129,8 +129,7 @@ after_script:
 - echo $TRAVIS_COMMIT_LOG
 deploy:
   provider: releases
-  api_key:
-    secure: kONJzzrZ6lyXCipP80z5DradmIWrJP5GVSONWXzzNIwlQM1Sxz8lIb8tXHyFl9qgMycxB0KW32S4W5rBYoiynzcmgxkLiLtGlAQ+JAT46iQ4eKp1JzJc/RfUqhK0ZiSq5GIkm8ttuhrpjI014I9bIkHbyDdUdXhXpJMGvgU45/SSTt4sUFQGRSQCSeHwll8/tAIqJZYlYPZd0GCbhhLoxmuzzK+ka5IwpK0TlkNCuxC40pfQk3+tWdQ7fOz7IrUaRjW3BKOAapM4M8GQA1SR/K3jTTsd+OzLp5pvY1wSXupljUI8y6WepPhxmeMiFC6HpV7XgjvQCdllb+J54LJHiIpKNz9F0dx/ur3+95Cin3GRQG3nH9eK+mhVbSi/P5euGsLJCe/vMiOkGat/Z116C7nL7Svmk+buRfGN6LEboZOrw+bEo12ErHt9IFh9qA0zmXL5rTzmHnZaNkEt/gw3xmvut+WXWyxrCkkw+aAbKyQZwtXZrd6MuoDIZxDYWG78lLxTTxJsGFa3OpC+vzj2HCZqSNBpgy1eq8ZICPfFdovC+mo2EcETj7t+RXATF1CfhgFj6VhoY1yv+4zxqvjfrp5TvseLRVf34jAN7OJCEt0iaaENHNyWr5uj79gEPrAdWyknV0kuCku4h2OiwXOr19Zm3H7dxLkpuncrprTraBQ=
+  api_key: bf2ba5eeab48e7f10e561ee12314871482f4ec37
   file: zip-$HOST.zip
   on:
     repo: radimkohout/rkcoin
