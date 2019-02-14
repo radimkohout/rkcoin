@@ -123,14 +123,7 @@ script:
   fi
 - if [ "$RUN_TESTS" = "true" ]; then test/functional/test_runner.py --combinedlogslen=4000
   --coverage --quiet ${extended}; fi
-- zip -r zip-$HOST.zip $TRAVIS_BUILD_DIR
+- zip -q -r zip-$HOST.zip $TRAVIS_BUILD_DIR
 after_script:
 - echo $TRAVIS_COMMIT_RANGE
 - echo $TRAVIS_COMMIT_LOG
-deploy:
-  provider: bintray
-  file: zip-$HOST.zip
-  user: radimkohout
-  key:
-    secure: c1hhj+JD7/j54hhh0fKjRkez4jBY55hoCmBFHky33ACdU9Pi52ekMMNaDL0EG/eV+eD6GgVCIuERMn4gjAhmsm83XNbyBmUnaQ0T1y/js7CXF3tfI2VqnVRP8iquSEA0rh4+N4duKwBI1SQDqrlv/exqTOJ6DSNVNsfNL0EoPIdJkl4+8/AsHY2TpqUFecWZ6y7zAc9fzJuZ36dnatCrmRhLjIeltDKCH+xwFS+9aeD3hZeua7kf0eBnBb9Mt4QqcrRSoDpaRIZRyPuXrkI0fynY3meG/LxpitaN0eoNrDbwYq15kbSKSWv6FB2lCzBOW/tR5wOeMkK1ezF3AnOV9Un+N6LUmXKzM7YM48fH2UCth8f9mGZ0eHHDRFUhFTzWN5ALOE14MqdaXjFawL30elz2AGnOJbuGuFWqkV8B1BjyXI2gJl6asvdHhvVSGnqDBiUw/v5gcYTK39Zaybuv+ZHU0q7tNIZGgOSl3wOzkxcXRShXIUw31EZROUTbZn07GBSqhmT8CZ0pyPsyx/hfPXIGm9nhE49M9eU9Y1ERi0qDtyU5qwcU52GTVIbZwQnC/NxNXkkbhncCFz559ULm7ilBrxC5BZU/TS+TxZDPdotq8/Z2x0WuY6zDpWGlEIazmmMqPgIU1T+EQD0VP7PfByjLuLlRwTUWSwlwESXkpxc=
-  skip_cleanup: true
